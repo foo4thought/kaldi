@@ -52,6 +52,14 @@ This repo contains documentation and resources for MLA's implementation of Kaldi
   First create symlinks between structures in kaldi and american-archive-kaldi
     - ln -s kaldi/egs/wsj/s5/steps american-archive-kaldi/sample_experiment/
     - ln -s kaldi/egs/wsj/s5/utils american-archive-kaldi/sample_experiment/
+    
+  Install system dependencies for perl
+    - sudo yum install perl-App-cpanminus.noarch # probably not necessary
+    - sudo yum install perl-CPAN.noarch
+    - perl -MCPAN -e shell
+      - install JSON
+      - install File::Slurp::Tiny
+      - install Data::Dump
   
   
   - Install SOX in root directory
