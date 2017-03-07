@@ -49,6 +49,11 @@ This repo contains documentation and resources for MLA's implementation of Kaldi
 
   PUA Instalation (https://github.com/popuparchive/american-archive-kaldi)
 
+  First create symlinks between structures in kaldi and american-archive-kaldi
+    - ln -s kaldi/egs/wsj/s5/steps american-archive-kaldi/sample_experiment/
+    - ln -s kaldi/egs/wsj/s5/utils american-archive-kaldi/sample_experiment/
+  
+  
   - Install SOX in root directory
   - Run ./configure in sox-[version] directory
   - Run make -s
