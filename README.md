@@ -54,10 +54,11 @@ This repo contains documentation and resources for MLA's implementation of Kaldi
     - ln -s kaldi/egs/wsj/s5/utils american-archive-kaldi/sample_experiment/
     
   Install system dependencies for perl
-    - sudo yum install perl-App-cpanminus.noarch # probably not necessary
-    - sudo yum install perl-CPAN.noarch
+    - sudo yum install perl-core.x86_64
+    - sudo yum install perl-JSON.noarch
+    - sudo yum install perl-CPAN.noarch # optional unless the following statement fails
+    - cpan JSON # initializes CPAN and does confirm/install JSON
     - perl -MCPAN -e shell
-      - install JSON
       - install File::Slurp::Tiny
       - install Data::Dump
   
