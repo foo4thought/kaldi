@@ -47,7 +47,9 @@ This repo contains documentation and resources for MLA's implementation of Kaldi
 - run make -j 4
 
 
-  PUA Instalation (https://github.com/popuparchive/american-archive-kaldi)
+  PUA Installation (https://github.com/popuparchive/american-archive-kaldi)
+  - cd $HOME
+  - git clone https://github.com/popuparchive/american-archive-kaldi
 
   First create symlinks between structures in kaldi and american-archive-kaldi
     - ln -s kaldi/egs/wsj/s5/steps american-archive-kaldi/sample_experiment/
@@ -61,6 +63,7 @@ This repo contains documentation and resources for MLA's implementation of Kaldi
     - perl -MCPAN -e shell
       - install File::Slurp::Tiny
       - install Data::Dump
+      - exit
   
   
   - Install SOX in root directory
@@ -75,11 +78,28 @@ This repo contains documentation and resources for MLA's implementation of Kaldi
   - Run make
   - Run sudo make install
 
-  - git clone https://github.com/popuparchive/american-archive-kaldi
+  - Ensure CMUSeg is installed 
+  - cd american-archive-kaldi/sample_experiment/
+  - ./install-cmuseg.sh 
+
+  - Install IRSTLM
   - cd kaldi/tools/extras
   - run install ./install_irstlm.sh
   - vi .bash_profile
   - Add . ./kaldi/tools/extras/env.sh
+  
+  - Install sclite
+  - cd kaldi/tools/sctk-2.4.10
+  - configure CFLAGS variable in makefiles to compile sclite for a 64-bit environment, adding -m64 to:
+      - sctk-2.4.10/src/asclite/core/makefile:CFLAGS = -g -Os -m64
+      - sctk-2.4.10/src/asclite/test/makefile:CFLAGS = -Os  -Wall -Wconversion -m64
+      - sctk-2.4.10/src/sclite/makefile:CFLAGS = -Os -m64
+      - NOTE: the README cites src/rfilter1/makefile as well, but it contained no CFLAGS variable
+  - make config
+	- make all
+	- make check
+	- make install
+	- make doc
 
 ## Usage
 
