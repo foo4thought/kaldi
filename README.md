@@ -96,10 +96,12 @@ This repo contains documentation and resources for MLA's implementation of Kaldi
       - sctk-2.4.10/src/sclite/makefile:CFLAGS = -Os -m64
       - NOTE: the README cites src/rfilter1/makefile as well, but it contained no CFLAGS variable
   - make config
-	- make all
-	- make check
-	- make install
-	- make doc
+  - make all
+  - make check
+  - make install
+  - make doc
+  
+  
 
 ## Usage
 
