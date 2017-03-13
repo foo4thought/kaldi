@@ -86,7 +86,7 @@ This repo contains documentation and resources for MLA's implementation of Kaldi
   - cd kaldi/tools/extras
   - run install ./install_irstlm.sh
   - vi .bash_profile
-  - Add . ./kaldi/tools/extras/env.sh
+  - Add command the following command to .bash_profile     . ./kaldi/tools/extras/env.sh
   
   - Install sclite
   - cd kaldi/tools/sctk-2.4.10
