@@ -115,13 +115,14 @@ This repo contains documentation and resources for MLA's implementation of Kaldi
   - Run make doc
 
 
-- Deal with python errors thrown when using americah-archive-kaldi/run_kaldi.py 
+- Deal with python errors thrown when using american-archive-kaldi/run_kaldi.py 
 - Upgrade pip and install ftfy
   - NOTE:  the following assumes use of python v2
   - sudo pip install --upgrade pip
+  - sudo ln -s /usr/local/bin/pip /usr/bin/pip
   - sudo pip install ftfy==4.4.1
-  - sudo /usr/local/bin/pip install PY3
-
+  - sudo pip install PY3
+  - sudo pip install -U six
 
 ## Usage
 
