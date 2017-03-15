@@ -47,13 +47,26 @@ This repo contains documentation and resources for MLA's implementation of Kaldi
 - run make -j 4
 
 
-  PUA Installation (https://github.com/popuparchive/american-archive-kaldi)
+-  PUA Installation (https://github.com/popuparchive/american-archive-kaldi)
   - cd $HOME
   - git clone https://github.com/popuparchive/american-archive-kaldi
+  
+  - Download the latest PUA Models, final result should be (re-)named exp
+  - curl -O 'https://cytranet.dl.sourceforge.net/project/popuparchive-kaldi/exp2.tar.gz'
+  - NOTE:  THIS WAS PROBLEMATIC, REQUIRING MANY HOURS AND "CONTINUE" SESSIONS LIKE THIS:
+    - curl -O -C  - 'https://cytranet.dl.sourceforge.net/project/popuparchive-kaldi/exp2.tar.gz'
+  - Unpack the fully-formed exp2.tar.gz to become directory 'exp'
+    - tar -xzf exp2.tar.gz exp
+    
+ 
+- Move the PUA Models into the american-archive-kaldi/sample_experiment
+  - mv exp american-archive-kaldi/sample_experiment/
 
-  First create symlinks between structures in kaldi and american-archive-kaldi
+ - Create symlinks between structures in kaldi and american-archive-kaldi
     - ln -s kaldi/egs/wsj/s5/steps american-archive-kaldi/sample_experiment/
     - ln -s kaldi/egs/wsj/s5/utils american-archive-kaldi/sample_experiment/
+    - ln -s kaldi/egs/wsj/s5/steps american-archive-kaldi/sample_experiment/exp/
+    - ln -s kaldi/egs/wsj/s5/utils american-archive-kaldi/sample_experiment/exp/
     
   Install system dependencies for perl
     - sudo yum install perl-core.x86_64
@@ -86,22 +99,22 @@ This repo contains documentation and resources for MLA's implementation of Kaldi
   - cd kaldi/tools/extras
   - run install ./install_irstlm.sh
   - vi .bash_profile
-  - Add command the following command to .bash_profile     . ./kaldi/tools/extras/env.sh
+  - Add command the following command to .bash_profile:     . ./kaldi/tools/extras/env.sh
   
   - Install sclite
   - cd kaldi/tools/sctk-2.4.10
   - configure CFLAGS variable in makefiles to compile sclite for a 64-bit environment, adding -m64 to:
-      - sctk-2.4.10/src/asclite/core/makefile:CFLAGS = -g -Os -m64
-      - sctk-2.4.10/src/asclite/test/makefile:CFLAGS = -Os  -Wall -Wconversion -m64
-      - sctk-2.4.10/src/sclite/makefile:CFLAGS = -Os -m64
+      - sctk-2.4.10/src/asclite/core/makefile:  CFLAGS = -g -Os -m64
+      - sctk-2.4.10/src/asclite/test/makefile:  CFLAGS = -Os  -Wall -Wconversion -m64
+      - sctk-2.4.10/src/sclite/makefile:  CFLAGS = -Os -m64
       - NOTE: the README cites src/rfilter1/makefile as well, but it contained no CFLAGS variable
-  - make config
-  - make all
-  - make check
-  - make install
-  - make doc
+  - Run make config
+  - Run make all
+  - Run make check
+  - Run make install
+  - Run make doc
   
-  
+
 
 ## Usage
 
