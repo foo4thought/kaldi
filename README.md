@@ -124,6 +124,34 @@ This repo contains documentation and resources for MLA's implementation of Kaldi
   - sudo pip install PY3
   - sudo pip install -U six
 
+- More idiocy about inadequate permissions
+ [ec2-user@ip-172-30-0-129 sample_experiment]$ find . -type f -name '*sh' -executable
+./install-cmuseg.sh
+./set-kaldi-path.sh
+./run.sh
+[ec2-user@ip-172-30-0-129 sample_experiment]$ find . -type f -name '*sh' -not -executable
+./path.sh
+./tools/CMUseg_0.5/src/lib/sphere/src/scripts/install.sh
+./tools/CMUseg_0.5/src/lib/sphere/src/scripts/gen_make.sh
+./tools/CMUseg_0.5/src/lib/sphere/src/scripts/h_header.sh
+./tools/CMUseg_0.5/src/lib/sphere/src/scripts/raw2nist.sh
+./tools/CMUseg_0.5/src/lib/sphere/src/scripts/gen_setv.sh
+./tools/CMUseg_0.5/src/lib/sphere/src/scripts/gen_lord.sh
+./tools/CMUseg_0.5/src/lib/sphere/bin/h_header.sh
+./tools/CMUseg_0.5/src/lib/sphere/bin/raw2nist.sh
+./tools/CMUseg_0.5/src/lib/sphere/bin/gen_setv.sh
+./tools/CMUseg_0.5/src/lib/sphere/bin/gen_lord.sh
+./add_grammar.sh
+./prep_lang_local.sh
+./scripts/create_big_lm.sh
+./scripts/qq.sh
+./scripts/create_lm.sh
+[ec2-user@ip-172-30-0-129 sample_experiment]$ find . -type f -name '*sh' -not -executable -exec chmod +x {} \;
+
+
+
+
+
 ## Usage
 
 
