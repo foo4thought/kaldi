@@ -124,11 +124,13 @@ This repo contains documentation and resources for MLA's implementation of Kaldi
   - sudo pip install PY3
   - sudo pip install -U six
 
-- More idiocy about inadequate permissions
+- More idiocy about inadequate permissions: 
+ - list inventory of now-executable files
  [ec2-user@ip-172-30-0-129 sample_experiment]$ find . -type f -name '*sh' -executable
 ./install-cmuseg.sh
 ./set-kaldi-path.sh
 ./run.sh
+  - list non-executable files ending with '.sh' and make them executable
 [ec2-user@ip-172-30-0-129 sample_experiment]$ find . -type f -name '*sh' -not -executable
 ./path.sh
 ./tools/CMUseg_0.5/src/lib/sphere/src/scripts/install.sh
@@ -147,6 +149,33 @@ This repo contains documentation and resources for MLA's implementation of Kaldi
 ./scripts/qq.sh
 ./scripts/create_lm.sh
 [ec2-user@ip-172-30-0-129 sample_experiment]$ find . -type f -name '*sh' -not -executable -exec chmod +x {} \;
+
+find /home/ec2-user/american-archive-kaldi/sample_experiment/tools/CMUseg_0.5/bin/linux -type f -exec chmod +x {} \;
+
+
+- Begin idiocy involving perl
+  -Use CPAN to install perl4 core lib for 'getopts.pl' reference in CMUseg.pl script
+    -perl -MCPAN -e shell
+      cpan > install Perl4::CoreLibs
+
+
+- Steps after following PUA install guide
+• In american-archive-kaldi/sample_experiment/run.sh, set the following option to reduce the number of simultaneous jobs to 1: nj=1
+• In kaldi/egs/wsj/s5/utils/run.pl, set the following option:
+$max_jobs_run = 10;
+• In kaldi/egs/wsj/s5/steps/decode_fmllr.sh and kaldi/egs/wsj/s5/steps/tandem/decode_fmllr.sh, set the following options in the section where they appear together: 
+nj=1
+max_active=1000
+• In decode.sh, set the following option: nj=2 in these locations:
+- kaldi/egs/wsj/s5/steps/nnet/decode.sh
+- kaldi/egs/wsj/s5/steps/online/decode.sh
+- kaldi/egs/wsj/s5/steps/online/nnet2/decode.sh
+- kaldi/egs/wsj/s5/steps/online/nnet3/decode.sh
+- kaldi/egs/wsj/s5/steps/decode.sh
+- kaldi/egs/wsj/s5/steps/tandem/decode.sh
+- kaldi/egs/wsj/s5/steps/nnet3/decode.sh
+- kaldi/egs/wsj/s5/steps/nnet2/decode.sh
+- kaldi/egs/aspire/s5/local/multi_condition/decode.sh
 
 
 
