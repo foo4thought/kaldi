@@ -151,6 +151,7 @@ This repo contains documentation and resources for MLA's implementation of Kaldi
 [ec2-user@ip-172-30-0-129 sample_experiment]$ find . -type f -name '*sh' -not -executable -exec chmod +x {} \;
 
 find /home/ec2-user/american-archive-kaldi/sample_experiment/tools/CMUseg_0.5/bin/linux -type f -exec chmod +x {} \;
+chmod +x american-archive-kaldi/sample_experiment/scripts/*
 
 
 - Begin idiocy involving perl
